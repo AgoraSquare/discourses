@@ -1,3 +1,4 @@
+// Testnet
 export const supportedChainIds = [
     1313161555, //aurora
     80001, //Polygon

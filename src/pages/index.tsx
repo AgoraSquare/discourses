@@ -18,6 +18,7 @@ import { useNetwork } from 'wagmi'
 import { supportedChainIds } from '../Constants'
 import { ToastTypes } from '../lib/Types'
 import { uuid } from 'uuidv4'
+import HeroCard from '../components/actions/HeroCard'
 
 
 const Home: NextPage = () => {
@@ -70,35 +71,24 @@ const Home: NextPage = () => {
 					{/* TopSection */}
 					<TopBar />
 					{/* Body */}
-					{ !showAll && <div className='w-full bg-card items-center px-10 py-8 rounded-xl mt-8 flex justify-between'>
-						<div className='flex flex-col gap-1'>
-							<h3 className='text-white font-semibold'>Start a Discourse</h3>
-							<p className='text-white/40 font-medium text-xs'>Invite speakers to your discourse from Twitter!</p>
-							{!loggedIn && <>
-								<ConnectWalletDailog open={openConnectWallet} setOpen={setOpenConnectWallet} />
-								{/* <button onClick={() =>  setOpenConnectWallet((prev: boolean) =>  )} className='text-blue-500 w-max text-sm font-medium mt-4' >Create one &rarr;</button> */}
-							</>
-							}
-							<button onClick={() => handleCreate() } className='text-blue-500 w-max text-sm font-medium mt-4' >Create one &rarr;</button>
-						</div>
-						<img src="/discourse_g1.png" alt="" />
-					</div>}
+					{ !showAll && <HeroCard /> }
 					{/* explore */}
-					{dData && dData.getDiscourses.length != 0 && <nav className='flex items-center justify-between py-4 px-2'>
+					{/* {dData && dData.getDiscourses.length != 0 && <nav className='flex items-center justify-between py-4 px-2'>
 						<div className='flex flex-col gap-1'>
 							<h3 className='text-white font-semibold'>Explore</h3>
 							<p className='text-white/40 font-medium text-xs hidden sm:flex'>Listen in to the most interesting discourses on web3</p>
 						</div>
 						{
 							<button onClick={() => setShowAll(prev => !prev)} className='text-blue-500 w-max text-xs font-medium mt-4' >{showAll ? 'Show less' : 'Show all'}</button>}
-					</nav>}
+					</nav>} */}
 					{/* list */}
 					<div className='w-full flex flex-col items-center gap-2'>
 						{
 							dData && dData.getDiscourses.length > 0 &&
 							[].concat(dData.getDiscourses).sort(
 								(a: any, b: any) => +b.initTS - +a.initTS
-							).slice(0, showAll ? dData.getDiscourses.length : dData.getDiscourses.length > 4 ? 4 : dData.getDiscourses.length)
+							).filter((a:any) => supportedChainIds.includes(a.chainId))
+							// .slice(0, showAll ? dData.getDiscourses.length : dData.getDiscourses.length > 4 ? 4 : dData.getDiscourses.length)
 							.map((data: any) => (
 								<DiscourseLongList state={0} key={data.id} data={data} />
 							))

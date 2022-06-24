@@ -82,13 +82,13 @@ const Home: NextPage = () => {
 							<button onClick={() => setShowAll(prev => !prev)} className='text-blue-500 w-max text-xs font-medium mt-4' >{showAll ? 'Show less' : 'Show all'}</button>}
 					</nav>} */}
 					{/* list */}
-					<div className='w-full flex flex-col items-center gap-2'>
+					<div className='w-full grid grid-cols-1 sm:grid-cols-2 md2:grid-cols-3 grid-flow-row items-center px-4 sm:px-10 md2:px-0 gap-2'>
 						{
 							dData && dData.getDiscourses.length > 0 &&
 							[].concat(dData.getDiscourses).sort(
 								(a: any, b: any) => +b.initTS - +a.initTS
 							).filter((a:any) => supportedChainIds.includes(a.chainId))
-							// .slice(0, showAll ? dData.getDiscourses.length : dData.getDiscourses.length > 4 ? 4 : dData.getDiscourses.length)
+							// .slice(0, 1)
 							.map((data: any) => (
 								<DiscourseLongList state={0} key={data.id} data={data} />
 							))

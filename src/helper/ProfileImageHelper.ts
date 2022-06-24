@@ -1,5 +1,5 @@
 export const fetchImage = async (twitterHandle: string) => {
-    const r =  await fetch(`http://localhost:3000/api/twitter-user`,{
+    const r =  await fetch(`https://testnet.discourses.agorasquare.io/api/twitter-user`,{
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

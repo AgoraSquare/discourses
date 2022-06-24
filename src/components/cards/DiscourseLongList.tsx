@@ -35,7 +35,7 @@ const DiscourseLongList = ({ state, data }: { state: number, data: any }) => {
                     <img className="scale-105 w-8 h-8 object-cover rounded-xl object-center" src={u2?.profile_image_url} alt="" />
                 </div>
             </div>
-            <div className='sm:flex flex-col hidden'>
+            <div className='flex flex-col'>
                 <h4 className='text-[#c6c6c6] text-xs tracking-wide font-medium'>{u1?.name}</h4>
                 <h4 className='text-[#c6c6c6] text-xs tracking-wide font-medium'>{u2?.name}</h4>
             </div>

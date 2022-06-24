@@ -36,13 +36,13 @@ const DiscourseLongList = ({ state, data }: { state: number, data: any }) => {
                 </div>
             </div>
             <div className='flex flex-col'>
-                <h4 className='text-[#c6c6c6] text-xs tracking-wide font-medium'>{u1?.name}</h4>
-                <h4 className='text-[#c6c6c6] text-xs tracking-wide font-medium'>{u2?.name}</h4>
+                <h4 className='text-[#c6c6c6] text-xs tracking-wide font-medium line-clamp-1'>{u1?.name}</h4>
+                <h4 className='text-[#c6c6c6] text-xs tracking-wide font-medium line-clamp-1'>{u2?.name}</h4>
             </div>
             </div>
 
             {/* title */}
-            <h3 className='text-white text-sm font-semibold'>{data.title}</h3>
+            <h3 className='text-white text-sm font-semibold line-clamp-2'>{data.title}</h3>
             {/* divider */}
             <div className='w-full mx-1 h-[1px] bg-[#303030] flex rounded-xl' />
 

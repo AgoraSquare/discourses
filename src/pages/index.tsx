@@ -95,19 +95,19 @@ const Home: NextPage = () => {
 						}
 						{
 							dData && dData.getDiscourses.length == 0 &&
-							<div className='w-full py-4 flex items-center justify-center mt-10'>
+							<div className='absolute inset-0 top-10 w-full py-4 flex items-center justify-center mt-10'>
 								<img className='w-36' src="/404_discourses.png" alt="" />
 							</div>
 						}
 						{
 							dLoading &&
-							<div className='w-full py-4 flex items-center justify-center'>
+							<div className='w-full absolute inset-0 top-10 py-4 flex items-center justify-center'>
 								<LoadingSpinner strokeColor='#ffffff' />
 							</div>
 						}
 						{
 							dError &&
-							<div className='w-full py-4 flex items-center justify-center'>
+							<div className='absolute inset-0 top-10 w-full py-4 flex items-center justify-center'>
 								<p className='text-white/30 text-sm'>Error gettting Discourses</p>
 							</div>
 						}

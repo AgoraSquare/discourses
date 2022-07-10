@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Dispatch, SetStateAction, useContext, useRef } from "react";
+import { Dispatch, FC, SetStateAction, useContext, useRef } from "react";
 import { useRouter } from 'next/router';
 import Web3 from "web3";
 import { BigNumber, ethers } from "ethers";
@@ -20,9 +20,13 @@ import { getCurrencyName, supportedChainIds } from '../../Constants';
 import { ToastTypes } from '../../lib/Types';
 import { uuid } from 'uuidv4';
 
+interface Props {
+    open: boolean;
+    setOpen: Dispatch<SetStateAction<boolean>>;
+    data: any;
+}
 
-
-const CreateDiscourseDialog = ({ open, setOpen, data }: { open: boolean, setOpen: Dispatch<SetStateAction<boolean>>, data: any }) => {
+const CreateDiscourseDialog: FC<Props> = ({ open, setOpen, data }) => {
     let buttonRef = useRef(null);
     const { loggedIn, walletAddress, addToast } = useContext(AppContext);
 
@@ -164,7 +168,6 @@ const CreateDiscourseDialog = ({ open, setOpen, data }: { open: boolean, setOpen
 
 
     const handleFundClick = async () => {
-
         if (supportedChainIds.includes(activeChain?.id!)) {
             addToast({
                 title: "Waiting for confirmation",

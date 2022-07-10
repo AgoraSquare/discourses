@@ -42,9 +42,6 @@ const Watch: NextPage = () => {
         setOpenPlayer((prev => !prev));
     }
 
-    console.log(sessionData);
-    
-
     return (
         <div className="w-full h-screen overflow-x-clip">
             <Head>
